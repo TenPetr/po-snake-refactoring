@@ -92,13 +92,7 @@ namespace SnakeGame
                 return;
             }
 
-            if (snakeHead.Location.Column == fruit.Location.Column && snakeHead.Location.Row == fruit.Location.Row)
-            {
-                score++;
-                PlaceFruit();
-            }
-
-            snakeBody.Add(new Point { Column = snakeHead.Location.Column, Row = snakeHead.Location.Row });
+            IncrementScoreIfNeeded();
 
             switch (currentDirection)
             {
@@ -121,6 +115,22 @@ namespace SnakeGame
                 snakeBody.RemoveAt(0);
             }
 
+            CheckSnakeToBodyCollision();
+        }
+
+        private void IncrementScoreIfNeeded() 
+        {
+            if (snakeHead.Location.Column == fruit.Location.Column && snakeHead.Location.Row == fruit.Location.Row)
+            {
+                score++;
+                PlaceFruit();
+            }
+
+            snakeBody.Add(new Point { Column = snakeHead.Location.Column, Row = snakeHead.Location.Row });
+        }
+
+        private void CheckSnakeToBodyCollision()
+        {
             isGameOver = snakeBody.Any(part => part.Column == snakeHead.Location.Column && part.Row == snakeHead.Location.Row);
         }
 
