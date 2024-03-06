@@ -117,6 +117,7 @@ project.lock.json
 *.kproj
 *.csproj.user
 *.sln.user
+*.sln
 *.userprefs
 *.csproj.dotsettings.user
 *.nuget.targets

@@ -137,8 +137,8 @@ namespace SnakeGame
         private void RenderScreen()
         {
             Console.Clear();
-
             Console.ForegroundColor = ConsoleColor.White;
+
             for (int i = 0; i < GameWidth; i++)
             {
                 Console.SetCursorPosition(i, 0);
@@ -178,6 +178,7 @@ namespace SnakeGame
             Console.SetCursorPosition(pixel.Location.Column, pixel.Location.Row);
             Console.ForegroundColor = pixel.PixelColor;
             Console.Write(GamePixel);
+            Console.SetCursorPosition(0, 0);
         }
     }
 }
